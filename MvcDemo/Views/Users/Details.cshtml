@@ -1,0 +1,25 @@
+﻿@model Entity.t_Users
+
+@{
+    ViewBag.Title = "用户信息详细";
+}
+    <div id="nav">当前位置：用户信息详细</div>
+    <div class="display-label">Account：</div>
+    <div class="display-field">@Model.Account</div>
+    <div class="display-label">Password：</div>
+    <div class="display-field">@Model.Password</div>
+    <div class="display-label">Name：</div>
+    <div class="display-field">@Model.Name</div>
+    <div class="display-label">Sex：</div>
+    <div class="display-field">@(Model.Sex==1?"男":"女")</div>
+    <div class="display-label">Email：</div>
+    <div class="display-field">@Model.Email</div>
+    <div class="display-label">Telephone：</div>
+    <div class="display-field">@Model.Telephone</div>
+    <div class="display-label">Remark：</div>
+    <div class="display-field">@Model.Remark</div>
+    <p>
+        @Html.ActionLink("修改此用户", "Edit", new { userID=Model.UserID }) |
+        @Html.ActionLink("返回用户信息列表", "Index")
+    </p>
+

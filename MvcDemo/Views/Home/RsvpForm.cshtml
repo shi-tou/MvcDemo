@@ -1,0 +1,34 @@
+﻿@model MvcDemo.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>RsvpForm</title>
+    @*两种写法均可用*@
+    @*<link href=@Url.Content("~/Content/Site.css") rel="stylesheet" type="text/css" />*@    
+    <link href=@Href("~/Content/Site.css") rel="Stylesheet" type="text/css" />
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()//返回一个无序列表(ul元素),包含了在系统System.Web.Mvc.ModelStateDictionary对象验证消息
+        <p>&nbsp;Name:@Html.TextBoxFor(x=>x.Name)</p>
+        <p>Email:@Html.TextBoxFor(x => x.Email)</p>
+        <p>Phone:@Html.TextBoxFor(x => x.Phone)</p>
+        <p>
+            Will you Attend?
+            @Html.DropDownListFor(x=>x.WillAttend,new []{
+               new SelectListItem(){ Text="Yes,I'll be there",Value=bool.TrueString} ,
+               new SelectListItem(){ Text="No,I can't come",Value=bool.TrueString}
+            },"Choose an Option")
+        </p>
+        <input type="submit" value="Submit Rsvp" />
+    }
+        
+</body>
+</html>

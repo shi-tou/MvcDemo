@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Entity.t_Users>
+
+@{
+    ViewBag.Title = "用户信息列表";
+}
+
+<div id="nav">当前位置：用户信息列表</div>
+
+<p>
+    @Html.ActionLink("新增用户", "Create")
+</p>
+<table cellspacing="1">
+    <tr>
+        <th>操作</th>
+        <th>
+            UserID
+        </th>
+        <th>
+            Account
+        </th>
+        <th>
+            Password
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Sex
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Telephone
+        </th>
+        <th>
+            Reamrk
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("修改", "Edit", new { userID = item.UserID }) |
+            @Html.ActionLink("详细", "Details", new { userID = item.UserID }) |
+            @Html.ActionLink("删除", "Delete", new { userID = item.UserID })
+        </td>
+        <td>
+            @item.UserID
+        </td>
+        <td>
+            @item.Account
+        </td>
+        <td>
+            @item.Password
+        </td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @(item.Sex==1?"男":"女")
+        </td>
+        <td>
+            @item.Email
+        </td>
+        <td>
+            @item.Telephone
+        </td>
+        <td>
+            @item.Remark
+        </td>
+    </tr>
+}
+
+</table>
+

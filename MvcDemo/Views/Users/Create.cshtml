@@ -1,0 +1,75 @@
+﻿@model Entity.t_Users
+    
+    <div id="nav">当前位置：用户信息详细</div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)       
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Account)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Account)
+                @Html.ValidationMessageFor(model => model.Account)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Sex)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Sex, new[] { 
+                    new SelectListItem(){ Text="男",Value="1"},
+                    new SelectListItem(){ Text="女",Value="2"}
+                }, "请选择")
+                @Html.ValidationMessageFor(model => model.Sex)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Telephone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Telephone)
+                @Html.ValidationMessageFor(model => model.Telephone)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Remark)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Remark)
+                @Html.ValidationMessageFor(model => model.Remark)
+            </div>
+    
+            <p>
+                <input type="submit" value="新增" />
+            </p>
+    }
+    
+    <div>
+        @Html.ActionLink("返回用户信息列表", "Index")
+    </div>
+
